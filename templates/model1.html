@@ -1,0 +1,76 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Model1</title>
+</head>
+<body>
+<div class="heading">
+  <h2 align="center"><marquee>Sentiment analyzer</marquee></h2>
+</div>
+<a href="{% url 'model1' %}" class="btn btn-primary btn-lg active m1" role="button" aria-pressed="true">Model1</a>
+<a href="{% url 'model2' %}" class="btn btn-secondary btn-lg active m2" role="button" aria-pressed="true">Model2</a>
+<div class="introduction">
+  <form id="model_form" method="POST" action="">
+      {% csrf_token %}
+    <textarea rows="7" cols="50" id="box" required placeholder="Text to be Analysed" class="textarea"></textarea><br><br>
+    <button type="submit" class="btn btn-success chk">Check Response</button>
+  </form><br><br><br>
+  <div class="emoji">
+    <img src="{% static 'positive.png' %}" width="100" height="100" id="pos_img">&nbsp;&nbsp;&nbsp;
+    <img src="{% static 'neutral2.png' %}" width="80" height="80" id="neu_img">&nbsp;&nbsp;&nbsp;
+    <img src="{% static 'negative.png' %}" width="70" height="70" id="neg_img">
+    </div>
+
+      <a class="btn btn-primary try1" href="{% url 'index' %}" role="button">Go back</a>
+    </div>
+
+
+</div>
+</body>
+
+<script>
+    $(document).ready(function(){
+        $('#pos_img').css('opacity','0.4')
+        $('#neu_img').css('opacity','0.4')
+        $('#neg_img').css('opacity','0.4')
+    })
+    $("#model_form").submit(function(event){
+        $.ajax({
+            url: "{% url 'model1' %}",
+            type: "POST",
+            data: "text="+$('#box').val(),
+            dataType : 'json',
+            encode   : true
+        }).done(function(data){
+            if(data.status=1){
+                if(data.success == 'positive'){
+                    $('#pos_img').css('opacity','1.0')
+                    $('#neu_img').css('opacity','0.4')
+                    $('#neg_img').css('opacity','0.4')
+                }
+                else if(data.success == 'neutral'){
+                    $('#pos_img').css('opacity','0.4')
+                    $('#neu_img').css('opacity','1.0')
+                    $('#neg_img').css('opacity','0.4')
+                }else{
+                    $('#pos_img').css('opacity','0.4')
+                    $('#neu_img').css('opacity','0.4')
+                    $('#neg_img').css('opacity','1.0')
+                }
+                $('#model_form').trigger('reset')
+            }else{
+                alert(data.error)
+            }
+        });
+        event.preventDefault();
+    })
+</script>
+</html>
