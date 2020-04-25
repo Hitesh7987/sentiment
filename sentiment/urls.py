@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.home, name="index"),
     path('model1', views.model1, name="model1"),
     path('model2', views.model2, name="model2"),
-    #path('india/', views.india, name="india"),
+    path('resources', views.resources, name="resources"),
+    #path('india/', views.resources, name="india"),
 ]

@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{% static "style.css" %}">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -16,15 +17,30 @@
 </div>
 <div class="introduction">
   <div class="intro_heading"><h2>Technologies used</h2></div>
-  <div class="description"><p><h3>write here....</h3></p>
+  <div class="description"><p><h3>Python Packages :
+  <ul>
+      <li>sklearn</li>
+      <li>pandas</li>
+      <li>gensim</li>
+      <li>numpy</li>
+      <li>pickle</li>
+      <li>Beautiful Soup</li>
+  </ul>
+      Technologies used :
+      <ul>
+          <li>HTML, CSS, Bottstrap, Javascript, Jquerry</li>
+          <li>Python(3), Django</li>
+          <li>Natural Language ToolKit (NLTK)</li>
+      </ul>
+  </h3></p>
     
-      <a class="btn btn-primary " href="#" role="button">Go back</a>
+      <a class="btn btn-primary " href="{% url 'index' %}" role="button">Go back</a>
     </div>
 
 
 </div><br>
   <div class="dev1 a"><div class="img">
-    <img src="../static/abhi.jpg" height="200" width="200"></div>
+    <img src="{% static "abhi.jpg" %}" height="200" width="200"></div>
 <h4>Developer 1</h4><br>
 
 <h6>
@@ -32,7 +48,7 @@ Name:Abhishek kumar<br> Sharma<br>
 CSE 7th SEM</h6>
 </div>
 <div class="dev2 a"><div class="img">
-  <img src="../static/hitesh.jpeg" height="200" width="200"></div>
+  <img src="{% static "hitesh.jpeg" %}" height="200" width="200"></div>
 <h4>Developer 2</h4><br>
 <h6>
   Name:Hitesh Chaurasia<br>

@@ -14,6 +14,10 @@ def home(request):
    #print(apps.get_app_config('sentiment').getSentiment('Bad'))
     return render(request, 'page1.html', {})
 
+def resources(request):
+    #paralleldots.sentiment(text)
+   #print(apps.get_app_config('sentiment').getSentiment('Bad'))
+    return render(request, 'resource.html', {})
 @csrf_exempt
 def model1(request):
     if request.method == "GET":
