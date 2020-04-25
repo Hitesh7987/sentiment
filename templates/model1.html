@@ -23,10 +23,23 @@
     <textarea rows="7" cols="50" id="box" required placeholder="Text to be Analysed" class="textarea"></textarea><br><br>
     <button type="submit" class="btn btn-success chk">Check Response</button>
   </form><br><br><br>
-  <div class="emoji">
-    <img src="{% static 'positive.png' %}" width="100" height="100" id="pos_img">&nbsp;&nbsp;&nbsp;
-    <img src="{% static 'neutral2.png' %}" width="80" height="80" id="neu_img">&nbsp;&nbsp;&nbsp;
-    <img src="{% static 'negative.png' %}" width="70" height="70" id="neg_img">
+    <div class="emoji">
+        <div class="e1">
+            <img src="{% static 'positive.png' %}" width="100" height="100" id="pos_img">
+            <div class="score">
+                <h2 color="white" id="pos_score"></h2></div>
+        </div>
+        <div class="e2">
+            <img src="{% static 'neutral2.png' %}" width="80" height="80" id="neu_img">
+            <div class="score">
+                <h2 color="white" id="neu_score"></h2></div>
+        </div>
+        <div class="e3">
+            <img src="{% static 'negative.png' %}" width="70" height="70" id="neg_img">
+            <div class="score">
+                <h2 color="white" id="neg_score"></h2>
+            </div>
+        </div>
     </div>
 
       <a class="btn btn-primary try1" href="{% url 'index' %}" role="button">Go back</a>
@@ -55,15 +68,18 @@
                     $('#pos_img').css('opacity','1.0')
                     $('#neu_img').css('opacity','0.4')
                     $('#neg_img').css('opacity','0.4')
+                    $('#pos_score').html((parseFloat(data.score)*100).toFixed(2))
                 }
                 else if(data.success == 'neutral'){
                     $('#pos_img').css('opacity','0.4')
                     $('#neu_img').css('opacity','1.0')
                     $('#neg_img').css('opacity','0.4')
+                    $('#neu_score').html((parseFloat(data.score)*100).toFixed(2))
                 }else{
                     $('#pos_img').css('opacity','0.4')
                     $('#neu_img').css('opacity','0.4')
                     $('#neg_img').css('opacity','1.0')
+                    $('#neg_score').html((parseFloat(data.score)*100).toFixed(2))
                 }
                 $('#model_form').trigger('reset')
             }else{

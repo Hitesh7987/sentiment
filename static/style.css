@@ -89,3 +89,23 @@ body{
     margin-left:30%;
     
 }
+.e1{
+    float:left;
+    color:white;
+    
+}
+.e2{
+    float:left;
+    margin-left: 60px;
+    margin-top:20px;
+    color:white;
+}
+.e3{
+    float:left;
+    margin-left: 60px;
+    margin-top:30px;
+    color:white;
+}
+.score{
+    margin-left:35px;
+}
