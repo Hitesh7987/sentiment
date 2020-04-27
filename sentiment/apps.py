@@ -17,8 +17,8 @@ class SentimentConfig(AppConfig):
     downsampling = 1e-3
     def ready(self):
         print("Logging message")
-      #  self.model = gensim.models.Word2Vec.load('sentiment/300fea_40work_10cont')
-       # self.forest = pickle.load(open('sentiment/random_forest_model2', 'rb'))
+        self.model = gensim.models.Word2Vec.load('sentiment/300fea_40work_10cont')
+        self.forest = pickle.load(open('sentiment/random_forest_model2', 'rb'))
         pass
 
     def getSentiment(self,text):
