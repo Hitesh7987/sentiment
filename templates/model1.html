@@ -69,17 +69,23 @@
                     $('#neu_img').css('opacity','0.4')
                     $('#neg_img').css('opacity','0.4')
                     $('#pos_score').html((parseFloat(data.score)*100).toFixed(2))
+                    $('#neu_score').html('')
+                    $('#neg_score').html('')
                 }
                 else if(data.success == 'neutral'){
                     $('#pos_img').css('opacity','0.4')
                     $('#neu_img').css('opacity','1.0')
                     $('#neg_img').css('opacity','0.4')
                     $('#neu_score').html((parseFloat(data.score)*100).toFixed(2))
+                    $('#pos_score').html('')
+                    $('#neg_score').html('')
                 }else{
                     $('#pos_img').css('opacity','0.4')
                     $('#neu_img').css('opacity','0.4')
                     $('#neg_img').css('opacity','1.0')
                     $('#neg_score').html((parseFloat(data.score)*100).toFixed(2))
+                    $('#neu_score').html('')
+                    $('#pos_score').html('')
                 }
                 $('#model_form').trigger('reset')
             }else{
