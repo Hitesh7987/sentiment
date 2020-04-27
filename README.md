@@ -1,2 +1,2 @@
 # sentiment
-A Project that determines the sentiment behind your text.
+A Project that determines the sentiment behind your text. There basically two models are developed, first model is built on huge training data with higher accuracy while the development of model2 is in progress. Still model2 is able to predict most of the sentiments but fails in some cases as its in development process. So Model2 never stops learning and continue to build its hyper parameters for more accuracy.
